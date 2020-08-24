@@ -1,0 +1,17 @@
+/**
+ * Vanilla
+ *
+ * Normaliseur configurable.
+ *
+ * Styleguide: vanilla
+ *
+ */
+@import '../vanilla/base.css';
+@import '../vanilla/code.css';
+@import '../vanilla/heading.css';
+@import '../vanilla/link.css';
+@import '../vanilla/list.css';
+@import '../vanilla/media.css';
+@import '../vanilla/miscellaneous.css';
+@import '../vanilla/paragraph.css';
+@import '../vanilla/table.css';

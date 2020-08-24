@@ -1,0 +1,201 @@
+/**
+ * Feuille de style
+ *
+ * La convention d'écriture http://codeguide.co/#css est imposé pour
+ * ce document.
+ *
+ * Les déclarations de régles doivent être ordonnées par sécifité de sélécteurs,
+ * du plus faibles au plus forts et groupés par thématiques ou composants.
+ * La spécificité : https://www.w3.org/TR/selectors/#specificity
+ *
+ * Les commentaires CSS doivent suivrent la documentation
+ * [KSS](http://warpspire.com/kss/syntax/) pour être exploiter
+ * par le style de guide.
+ *
+ * @package glitchab.fr
+ * @licence
+ */
+
+ /**
+ * Notes:
+ *  - Semantic tant que possible : https://turretcss.com/getting-started/
+ *  - Classement des elements et espace de noms : https://bulma.io/documentation/
+ *  - Classement des elements et espace de noms : https://purecss.io/
+ */
+/**
+ * # Importations des dependances
+ *
+ * Attention à respécter la précedence.
+ */
+@import 'config/variables.css';
+@import 'config/vanilla.css';
+@import 'config/styleguide.css';
+@import 'layouts/containers.css';
+@import 'layouts/columns.css';
+@import 'components/navigation.css';
+@import 'components/pagination.css';
+@import 'elements/button.css';
+@import 'elements/list.css';
+/*@import 'effects/glitch.css'; */
+
+/** Importation de fontes **/
+@import '../fonts/merriweather/stylesheet.css';
+@import '../fonts/oswald/stylesheet.css';
+
+/** Logo **/
+.logo a {
+  color: #2d2e2f;
+  text-decoration: underline;
+}
+
+/** Evénements **/
+.event-date,
+.event-location {
+  padding: 0.3em 0.5em;
+  background-color: #EEE;
+}
+.event-location p:last-child {margin-bottom: 0;}
+
+/** Variantes de présentation **/
+.insert {
+  background-color: var(--color-accent);
+  color: var(--color--accent-contrast);
+  padding: var(--gap);
+}
+.insert ul,
+.insert ol { padding-left: 0; }
+.is-small {
+  --h1-font-size: var(--font-size-large);
+  --h2-font-size: var(--font-size-normal);
+}
+.is-small p {
+  /** Note: À améliorer, généraliser la gestion des tailles de typo à la manière des Hn */
+  font-size: var(--font-size-small);
+  line-height: var(--line-height);
+}
+
+/** Contexte pied de page **/
+#footer {
+  --text-color:var(--color-accent-contrast);
+  --text-color-contrast:var(--color-accent);
+  --heading-font-color:var(--color-accent-contrast);
+  --h2-font-size: var(--font-size-large);
+  --link-color: var(--color-accent-contrast);
+  background-color: var(--text-color-contrast);
+  border-top: 6px solid var(--color-accent-strong);
+  padding-top: calc(var(--gap) * 2);
+  overflow: hidden;
+  /** @hack : forcer la marge du dernier enfant **/
+  /* text-shadow: 0 2px 2px var(--color-accent-strong); */
+}
+
+/** Contexte sous pied de page **/
+.subfooter {
+  --text-color: var(--color-accent);
+  --text-color-contrast: var(--color-accent-stronger);
+  --link-color: var(--color-accent);
+  --link-color-hover: var(--color-accent);
+  --link-color-visited: var(--color-accent);
+  --font-family: var(--font-family-header);
+  margin: var(--gap);
+  padding: calc(var(--gap) * 0.8);
+  background-color: var(--text-color-contrast);
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height); /* Rafraîchissement de la hauteur de ligne */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.subfooter *:last-child { margin-bottom: 0; }
+/** ARIA, accessibility **/
+/* [aria-hidden="true"] {visibility: hidden;} */
+.screen-reader-text {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+/** Utilitaire **/
+.center { text-align: center; }
+
+/** Patch temporaire **/
+.logo { font-size: 1em; }
+
+/** Produits **/
+.product-title { font-size: var(--font-size-large); }
+.product-details,
+.product-prices {
+  list-style: none;
+  padding-left: 0;
+}
+.product-details summary {
+  padding: var(--margin-thin) var(--margin);
+  background-color: var(--text-color-loud-contrast);
+  color: var(--text-color-loud);
+}
+.product-details {
+  font-size: var(--font-size-small);
+  background-color: var(--text-color-quiet-contrast);
+  color: var(--text-color-quiet);
+}
+
+
+/**
+ * Légende sur la couverture.
+ *
+ * À utiliser qu'avec des légendes courtes.
+ *
+ * Note :
+ * La couverture d'image avec `object-fit` est intéressante à ajouter dans
+ * `vanilla`. Par contre la légende qui remonte est trop spécifique et ne peut
+ * être que du design custom.
+ */
+/** components/medias.css **/
+figure.cover {
+  position: relative;
+}
+
+figure.cover figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: left;
+	background-color: rgba(255,255,255,0.6);
+}
+
+/* Icône svg, même aspect et comportement que les boutons */
+a.icon {
+  display: block;
+  font-size: var(--font-size-large);
+  width: var(--font-size-large);
+}
+a.icon svg {display: block;}
+a.icon,
+a.icon:visited {
+  color: var(--color-strong);
+  fill: var(--color-strong);
+}
+a.icon:hover,
+a.icon:active {
+  color: var(--color-accent-contrast);
+  fill: var(--color-accent-contrast);
+}
+
+/* Expérimentation : l'image couvre toute la place disponible */
+
+figure img {
+  width: 100%;
+  /* height: 100%; */
+  object-fit: cover;
+}
+
+/* Expérimentation : cover + header */
+/* figure.cover-navigation {height: 80vh; } */
+figure.cover-navigation + .navigation {
+  box-sizing: border-box;
+  margin-top: calc(var(--margin-after) * -1);
+  /* height: 80px;
+  margin-top: -80px; */
+}
+/* figure.cover-navigation figcaption { bottom: 80px; } */

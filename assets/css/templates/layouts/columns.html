@@ -1,0 +1,699 @@
+<h2>Grille automatiques</h2>
+<p>
+  Une grille dédiè à un affichage de contenu en "case d'échiquier" (comme un index de contenu par exemple). Elle est activée à l'aide de la classe <code>columns-auto</code>.
+</p>
+<p>
+  Cette grille est très simple à mettre en place, elle est conçue pour permettre une lecture de texte optimale. Ses colonnes sont automatiquement ajoutés dès que la place le permet.
+</p>
+<p>
+  L'espace qui ne peu pas être consacré à une colonne (espace minimun requis pour une colonne n'est pas atteint), il est répartit à droite et à gauche de la grille de manière à centrer la grille.
+</p>
+<p>
+  Chaque colonne est large de 1 modulo moins une gouttière (21em par défaut), il  et 0.85 modulo. Ce qui correspond à une largeur de colonne comprise entre 44 et 80 signes.
+</p>
+<div class="styleguide-columns columns-auto">
+  <div><p>Une ligne de quarante-quatre signes, voici.</p></div>
+  <div><p>Une ligne plus longue de 80 signes permet une lecture optimale, n'est-t'il pas.</p></div>
+  <div>3</div>
+  <div>4</div><div>5</div><div>6</div>
+  <div class="column-full"><code>column-full</code></div>
+  <!-- <div class="column is-double"><code>.column .is-double</code></div>
+  <div class="column is-triple"><code>.column .is-triple</code></div>
+  <div class="column is-major"><code>.column .is-major</code></div>
+  <div class="column is-minor"><code>.column .is-minor</code></div> -->
+</div>
+<pre>
+  &lt;div class="columns-auto"&gt;
+    &lt;div&gt;&lt;p&gt;Une ligne de quarante-quatre signes, voici.&lt;/p&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;p&gt;Une ligne plus longue de 80 signes permet une lecture optimale, n'est-t'il pas.&lt;/p&gt;&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;&lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;&lt;div&gt;6&lt;/div&gt;
+    &lt;div class="column is-fullwidth"&gt;&lt;code&gt;.column .is-fullwidth&lt;/code&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  </pre>
+
+<h2>La grille</h2>
+
+<p>
+  Une grille est activé avec la classe <code>columns</code>, le nombre de colonnes varie de 1 à 12 en fonction de la largeur de la fenêtre d'affichage  (contexte de point d'arrêt).
+</p>
+
+<table>
+  <tr>
+    <th></th>
+    <th>&gt; 720px</th>
+    <th>≥ 720px</th>
+    <th>≥ 1080px</th>
+    <th>≥ 1440px</th>
+    <th>≥ 1800px</th>
+  </tr>
+  <tr>
+    <td>Nbre de colonnes</td>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>6</td>
+    <td>12</td>
+  </tr>
+  <legend>Nombre de colonnes en fonction du contexte</legend>
+</table>
+
+<p>Une grille par défaut : </p>
+
+<p>
+  <div class="styleguide-columns columns">
+    <div>1</div><div>1</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>7</div><div>8</div><div>9</div>
+    <div>10</div><div>11</div><div>12</div>
+  </div>
+</p>
+
+<h3>Le nombre de colonnes</h3>
+<p>
+  Il est possible de choisir manuellement le nombre de colonnes voulue pour une grille. Il suffit d'ajouter le nombre de colonnes voulue en suffixe de la classe d'activation <code>columns-n</code>. Par exemple, une grille de 6 colonnes : <code>columns-6</code>.
+</p>
+
+<p>Les système de colonnes possibles sont : 1, 2, 3, 6 et 12.</p>
+
+<p>Une grille de 6 colonnes exemple</p>
+
+<div class="styleguide-columns columns-6">
+  <div>A</div><div>B</div><div>C</div>
+  <div>D</div><div>E</div><div>F</div>
+</div>
+
+<pre>
+  &lt;div class="columns-6"&gt;
+    &lt;div&gt;A&lt;/div&gt;&lt;div&gt;B&lt;/div&gt;&lt;div&gt;C&lt;/div&gt;
+    &lt;div&gt;D&lt;/div&gt;&lt;div&gt;E&lt;/div&gt;&lt;div&gt;F&lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+
+<h4>Les diverses grilles</h4>
+<p>
+  <div class="styleguide-columns columns-1">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>7</div><div>8</div><div>9</div>
+    <div>10</div><div>11</div><div>12</div>
+  </div>
+</p>
+<p>
+  <div class="styleguide-columns columns-2">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>7</div><div>8</div><div>9</div>
+    <div>10</div><div>11</div><div>12</div>
+  </div>
+</p>
+<p>
+  <div class="styleguide-columns columns-3">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>7</div><div>8</div><div>9</div>
+    <div>10</div><div>11</div><div>12</div>
+  </div>
+</p>
+<p>
+  <div class="styleguide-columns columns-6">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>7</div><div>8</div><div>9</div>
+    <div>10</div><div>11</div><div>12</div>
+  </div>
+</p>
+<p>
+  <div class="styleguide-columns columns-12">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>7</div><div>8</div><div>9</div>
+    <div>10</div><div>11</div><div>12</div>
+  </div>
+</p>
+
+<h3>Activation en fonction du contexte</h3>
+<P>
+  Le nombre de colonnes d'une grille peut être activé lors d'un contexte de point d'arret. Il suffit d'ajouter le nom du contexte en suffixe de la classe d'activation <code>columns-n-context</code>. Par exemple, une grille de 3 colonne qui ne s'activera qu'à partir des écrans moyens : <code>columns-3-medium</code>.
+</p>
+
+
+<p>
+  Il est possible de déclencher le nombre de colonnes à l'aide des <code>media-queries</code> avec la classe <code>column-n-device</code>, <code>device</code> correspont à la largeur du point d'arrêt. (par exemple : <code>columns-3-medium</code> pour une grille de 3 colonnes à partir du support de taille moyenne (taille de fenêtre ≥ à 1080px par défaut)).
+</p>
+
+<p>Une grille de 3 active à partir des écrans moyens par exemple : </p>
+<div class="styleguide-columns columns-3-medium">
+  <div>1</div><div>2</div><div>3</div>
+</div>
+
+<pre>
+  &lt;div class="styleguide-columns columns-3-medium"&gt;
+      &lt;div&gt;1&lt;/div&gt;&lt;div&gt;2&lt;/div&gt;&lt;div&gt;3&lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+
+<h4>Exemple de grille variant en fonction du contexte</h4>
+
+<p>
+  Une grille automatique varie de la manière suivante : 1 colonne sur mobile, 2 colonnes sur petit écran, 3 colonnes sur écran moyen, 6 colonnes sur grand écran et 12 colonnes sur très grand écran.
+</p>
+
+<p>
+  Dans cette exemple nous allons appliquer le comportement automatique (<code>columns</code>), mais nous aimerions rester sur un système de 3 colonnes à partir des grands écrans (<code>columns-3-medium</code>) et 6 colonnes à partir des très grand écrans (<code>columns-6-xlarge</code>).
+</p>
+
+<p>
+  <div class="styleguide-columns columns columns-3-medium columns-6-xlarge ">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+    <div>7</div><div>8</div><div>9</div>
+    <div>10</div><div>11</div><div>12</div>
+  </div>
+</p>
+
+<p>
+  Ainsi cette grille vas varier entre 1, 2 et 3 colonnes automatiquement, puis basculeras sur 3 colonnes à partir des écrans moyens et finalement sur 6 colonnes à partir des très grand écrans.
+</p>
+
+<h3>Gestion du débordement des cellules</h3>
+<p>
+  Par défaut, les cellules de cette grille occupent une colonne. Cependant il est possible de faire déborder les cellules avec les classes suivantes :
+</p>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Classe</th>
+    <th><code>columns-12</code> (device xlarge)</th>
+    <th><code>columns-6</code> (device large)</th>
+    <th><code>columns-3</code> (device medium)</th>
+    <th><code>columns-2</code> (device small)</th>
+    <th><code>columns-1</code> (device mobile)</th>
+  </tr>
+  <tr>
+    <td>Douxième (par défaut)</td>
+    <td><code>n.a.</code></td>
+    <td>1/12</td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+  </tr>
+  <tr>
+    <td>Sixième</td>
+    <td><code>column-sixth</code></td>
+    <td>2/12</td>
+    <td>1/6</td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+  </tr>
+  <tr>
+    <td>Tiers</td>
+    <td><code>column-third</code></td>
+    <td>4/12</td>
+    <td>2/6</td>
+    <td>1/3</td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+  </tr>
+  <tr>
+    <td>Demi</td>
+    <td><code>column-demi</code></td>
+    <td>6/12</td>
+    <td>3/6</td>
+    <td><code>-</code></td>
+    <td>1/2</td>
+    <td><code>-</code></td>
+  </tr>
+  <tr>
+    <td>Deux tiers</td>
+    <td><code>column-two-thirds</code></td>
+    <td>8/12</td>
+    <td>4/6</td>
+    <td>2/3</td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+  </tr>
+  <tr>
+    <td>Cind sixième</td>
+    <td><code>column-five-sixths</code></td>
+    <td>10/12</td>
+    <td>5/6</td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+    <td><code>-</code></td>
+  </tr>
+  <tr>
+    <td>Plein largeur</td>
+    <td><code>.column-full</code></td>
+    <td>12/12</td>
+    <td>6/6</td>
+    <td>3/3</td>
+    <td>2/2</td>
+    <td>1/1</td>
+  </tr>
+  <legend>Débordements des cellules</legend>
+</table>
+
+<p>
+  Note:le signe  "<code>-</code>" (moins) signifie que la cellule n'est pas divisible pour cette grille et ne peut pas être placé correctement.
+</p>
+
+<p>
+  Les débordements ne sont pas toujours divisible en fonction du nombre de colonnes disponible. Bien que les cellules basculerons sur un débordement au plus proche, il est possible de forçer le débordement en fonction du contexte.
+</p>
+
+<h4>Forçage de débordement</h4>
+
+<p>
+  Lorsque qu'un débordement ne peut pas entrer dans un système de grille donnée, elle est spécifier en pleine largeur (par exemple, une colonne de 1/3 dans une grille de 3 sera affichée comme une colonne de 3/3).
+</p>
+
+<p>
+  Il est possible de séléctionner manuellement un débordement de cellule en fonction du contexte. Par exemple une cellule de 1/3 pour passer en cellule de 1/2 lorsque la grille bascule en 2 colonnes.
+</p>
+
+<p>
+  Pour cela il suffit d'ajouter un suffixe de la largeur d'activation à la classe de débordement. Prenons par exemple cette grille de 3 composée de cellules de 1/3 :
+</p>
+
+<div class="styleguide-columns columns-3">
+  <div class="column-third column-full-2"><code>column-third column-full-2</code></div>
+  <div class="column-third column-demi-2"><code>column-third column-demi-2</code></div>
+  <div class="column-third column-demi-2"><code>column-third column-demi-2</code></div>
+</div>
+
+<pre>
+&lt;div class="styleguide-columns columns-3"&gt;
+  &lt;div class="column-third column-full-2"&gt;&lt;code&gt;column-third column-full-2&lt;/code&gt;&lt;/div&gt;
+  &lt;div class="column-third column-demi-2"&gt;&lt;code&gt;column-third column-demi-2&lt;/code&gt;&lt;/div&gt;
+  &lt;div class="column-third column-demi-2"&gt;&lt;code&gt;column-third column-demi-2&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<p>
+  Lorsque que le contexte passe en 2 colonnes (petit écran), les débordement manuels spécifié s'enclencherons :
+</p>
+
+<div class="styleguide-columns columns-2">
+  <div class="column-third column-full-2"><code>column-third column-full-2</code></div>
+  <div class="column-third column-demi-2"><code>column-third column-demi-2</code></div>
+  <div class="column-third column-demi-2"><code>column-third column-demi-2</code></div>
+</div>
+
+
+<pre>
+&lt;div class="styleguide-columns columns-2"&gt;
+  &lt;div class="column-third column-full-2"&gt;&lt;code&gt;column-third column-full-2&lt;/code&gt;&lt;/div&gt;
+  &lt;div class="column-third column-demi-2"&gt;&lt;code&gt;column-third column-demi-2&lt;/code&gt;&lt;/div&gt;
+  &lt;div class="column-third column-demi-2"&gt;&lt;code&gt;column-third column-demi-2&lt;/code&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h4>Imbrication de grille</h4>
+
+<p>Il est possible d'imbriquer des grille afin de bénificier de découpages plus préçis</p>
+
+<h3>Exemples de grilles</h3>
+
+<h4>Grille automatique</h4>
+<div class="styleguide-columns columns">
+  <div class="column-full"><code>column-full</code></div>
+
+  <div class="column-demi"><code>column-demi</code></div>
+  <div class="column-demi"><code>column-demi</code></div>
+
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div class="column-two-thirds"><code>column-two-thirds</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-five-sixths"><code>column-five-sixths</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+</div>
+
+<h4>Grille (12 colonnes) pour très grand écran (≥ 1800px)</h4>
+<div class="styleguide-columns columns-12">
+  <div class="column-full"><code>column-full</code></div>
+
+  <div class="column-demi"><code>column-demi</code></div>
+  <div class="column-demi"><code>column-demi</code></div>
+
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div class="column-two-thirds"><code>column-two-thirds</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-five-sixths"><code>column-five-sixths</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+</div>
+
+<h4>Grille (6 colonnes) pour grand écran (≥ 1440px)</h4>
+<div class="styleguide-columns columns-6">
+  <div class="column-full"><code>column-full</code></div>
+
+  <div class="column-demi"><code>column-demi</code></div>
+  <div class="column-demi"><code>column-demi</code></div>
+
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div class="column-two-thirds"><code>column-two-thirds</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-five-sixths"><code>column-five-sixths</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+</div>
+
+<h4>Grille (3 colonnes) pour écran moyen (≥ 1080px)</h4>
+<div class="styleguide-columns columns-3">
+  <div class="column-full"><code>column-full</code></div>
+
+  <div class="column-demi"><code>column-demi</code></div>
+  <div class="column-demi"><code>column-demi</code></div>
+
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div class="column-two-thirds"><code>column-two-thirds</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-five-sixths"><code>column-five-sixths</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+</div>
+
+<h4>Grille (2 colonnes) pour petit écran (≥ 720px)</h4>
+<div class="styleguide-columns columns-2">
+  <div class="column-full"><code>column-full</code></div>
+
+  <div class="column-demi"><code>column-demi</code></div>
+  <div class="column-demi"><code>column-demi</code></div>
+
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div class="column-two-thirds"><code>column-two-thirds</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-five-sixths"><code>column-five-sixths</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+</div>
+
+<h4>Grille (1 colonne) pour écran mobile (&gt; 720px)</h4>
+<div class="styleguide-columns columns-1">
+  <div class="column-full"><code>column-full</code></div>
+
+  <div class="column-demi"><code>column-demi</code></div>
+  <div class="column-demi"><code>column-demi</code></div>
+
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div class="column-two-thirds"><code>column-two-thirds</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-five-sixths"><code>column-five-sixths</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+</div>
+
+<p>Par exemple</p>
+
+<div class="styleguide-columns columns-3">
+    <div class="column-full">A</div>
+    <div class="column-two-thirds">B</div>
+    <div class="column-third">C</div>
+</div>
+
+<pre>
+    &lt;div class="columns"&gt;
+      &lt;div class="column-full-width"&gt;A&lt;/div&gt;
+      &lt;div class="column-two-thirds"&gt;B&lt;/div&gt;
+      &lt;div class="column-third"&gt;C&lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+
+<h4>Grille automatique</h4>
+<div class="styleguide-columns columns">
+  <div class="column-full"><code>column-full</code></div>
+
+  <div class="column-demi"><code>column-demi</code></div>
+  <div class="column-demi"><code>column-demi</code></div>
+
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div class="column-two-thirds"><code>column-two-thirds</code></div>
+  <div class="column-third"><code>column-third</code></div>
+
+  <div class="column-five-sixths"><code>column-five-sixths</code></div>
+  <div class="column-sixth"><code>column-sixth</code></div>
+
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+  <div><code>n.a.</code></div><div><code>n.a.</code></div>
+</div>
+
+<h3>Suffixes d'activation</h3>
+
+<p>
+  Comme constaté précedement, certaines cellules ne peuvent pas déborder correctement (par ex. une cellule de 1/3 dans une grile de 2 colonnes). Le stystème de grille choisi un débordement de substitution (par ex. 2/2 pour une cellule de 1/3 dans une grille de 2).
+</p>
+
+<p>
+  Cependant, il est possible de choisir soit même un débordement en fonction du contexte. Il suffit d'ajouter le suffixe correspondant au contexte à la classe d'activation (par ex. <code>column-third column-demi-2</code> pour une cellule passant à 1/2 pour une grille de 2).
+</p>
+
+
+<p>Pour un système de grille défini par les points d'arrêts, le débordement sera déclencher par la largeur de fenêtre d'affichage</p>
+
+<p>Les système de grilles définie manuellement ne sont pas surclassés par les points d'arrets (par ex. une grille de 3 colonnes <code>columns-3</code> resteras en 3 colonnes peut importe le points d'arret activé)
+</p>
+
+<h4>Système de grille et point d'arrêts</h4>
+
+<p>Un système de grille choisi manuellement n'est pas sensible aux points d'arrêts par défaut</p>
+
+<p>Cependant, il est possible de modifier le nombre de colonnes d'une grille en fonction du contexte de point d'arrêt (comme pour les cellules). Pour ce faire, il suffit d'ajouter le suffixe correspondant au contexte du point d'arret (par ex. <code>columns-3 columns-6-xlarge</code> définie une grille de 3 colonnes qui basculeras sur une grille de 6 colonnes dans un contexte d'écran très large).</p>
+
+
+<p>
+  <strong>Pour activer un grille</strong> dans un contexte
+</p>
+<p>
+  La largeur d'occupation des cellules est
+</p>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Nombre de colonnes</th>
+    <th>Largeur d'activation</th>
+    <th>Suffixe de classe d'activation</th>
+  </tr>
+  <tr>
+    <td>Mobile first</td>
+    <td>1</td>
+    <td>&gt; 360px</td>
+    <td><code>n.a.</code></td>
+  </tr>
+  <tr>
+    <td>Très petit</td>
+    <td>1</td>
+    <td>≥ 360px</td>
+    <td><code>-xsmall</code></td>
+  </tr>
+  <tr>
+    <td>Petit</td>
+    <td>2</td>
+    <td>≥ 720px</td>
+    <td><code>-small</code></td>
+  </tr>
+  <tr>
+    <td>Moyen</td>
+    <td>3</td>
+    <td>≥ 1080px</td>
+    <td><code>-medium</code></td>
+  </tr>
+  <tr>
+    <td>Large</td>
+    <td>4</td>
+    <td>≥ 1440px</td>
+    <td><code>-large</code></td>
+  </tr>
+  <tr>
+    <td>Très large</td>
+    <td>6</td>
+    <td>≥ 1800px</td>
+    <td><code>-xlarge</code></td>
+  </tr>
+  <legend>Suffixes d'activation</legend>
+</table>
+
+<p>
+  Il est à noter que le débordement des colonnes s'adapteront automatiquement à
+  la place disponible. Cependant il est tout à fait possible de contrôler
+  manuellement le débordement en ajoutant le suffixe correspondant à la taille d'activation.
+</p>
+
+<p>
+  Si la largeur d'affichage éstimé est inssufissant pour afficher une colonne :
+</p>
+<ul>
+  <li>son décallage d'offset est réduit ; </li>
+  <li>sa largeur est réduite.</li>
+</ul>
+<h3>Encombrement minimum</h3>
+<div class="styleguide-columns columns-small">
+</div>
+<div class="styleguide-columns columns
+columns-small
+columns-medium
+columns-large
+">
+  <div class="column s-1"><code>.column .s-1</code></div>
+  <div class="column s-1"><code>.column .s-1</code></div>
+  <div class="column s-1"><code>.column .s-1</code></div>
+  <div class="column s-1"><code>.column .s-1</code></div>
+  <div class="column s-1"><code>.column .s-1</code></div>
+  <div class="column s-1"><code>.column .s-1</code></div>
+
+  <div class="column s-1"><code>.column .s-1</code></div>
+  <div class="column s-2"><code>.column .s-2</code></div>
+  <div class="column s-3"><code>.column .s-3</code></div>
+  <div class="column s-4"><code>.column .s-4</code></div>
+  <div class="column s-5"><code>.column .s-5</code></div>
+  <div class="column s-6"><code>.column .s-6</code></div>
+
+  <div class="column s-5 offset-1"><code>.column .s-1 .offset-1</code></div>
+  <div class="column s-4 offset-2"><code>.column .s-1 .offset-2</code></div>
+  <div class="column s-3 offset-3"><code>.column .s-1 .offset-3</code></div>
+  <div class="column s-2 offset-4"><code>.column .s-1 .offset-4</code></div>
+  <div class="column s-1 offset-5"><code>.column .s-1 .offset-5</code></div>
+
+  <div class="column s-1 offset-1"><code>.column .s-1 .offset-1</code></div>
+  <div class="column s-1 offset-2"><code>.column .s-1 .offset-2</code></div>
+  <div class="column s-1 offset-3"><code>.column .s-1 .offset-3</code></div>
+  <div class="column s-1 offset-4"><code>.column .s-1 .offset-4</code></div>
+  <div class="column s-1 offset-5"><code>.column .s-1 .offset-5</code></div>
+
+</div>
+
+<h2>Exemple de layout</h2>
+
+<p>
+  Exemple de layout 2/3 1/3
+</p>
+<p>
+  Nota : Le marquage de taille précise chargenet inutilement le HTML. Exploiter plutot le marquage en proportion (`2-3`et `1-3`).
+</p>
+<div class="styleguide-columns columns">
+  <div class="column xs-2 s-3 m-4 l-5 xl-6"><code>.column .xs-2 .s-3 .m-4 .l-5 .xl-6</code></div>
+  <div class="column xs-1 s-2 m-3 l-3 xl-4"><code>.column .xs-1 .s-2 .m-3 .l-3 .xl-4</code></div>
+  <div class="column xs-1 s-1 m-1 l-2 xl-2"><code>.column .xs-1 .s-1 .m-1 .l-2 .xl-2</code></div>
+</div>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{site.lang}}">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <base href="{{site.url}}">
+    <meta name="description" content="{{#description}}{{description}}{{/description}}{{^description}}{{site.description}}{{/description}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" href="icon.png">
+    {{#site.styles}}
+    <link rel="stylesheet" href="{{style.src}}" media="{{style.media}}">
+    {{/site.styles}}
+    <meta name="theme-color" content="{{site.color}}">
+    {{>layout/open/social}}
+    <meta name="generator" content="{{site.generator}}">
+</head>
+<body>

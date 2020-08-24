@@ -1,0 +1,43 @@
+{{>layout/open}}
+{{>layout/header}}
+<main class="columns wrapper-large">
+  <div class="column-full">{{>layout/cover}}</div>
+  <div class="column-two-thirds">
+    <!-- le titre et la description sont gérés depuis le fichier de contenu correspondant à la rubrique (par ex. `ateliers.mustache` pour la page Ateliers)-->
+    <!-- <h2>{{collections.ateliers.metadata.name}}</h2>
+    <p>{{{collections.ateliers.metadata.description}}}</p> -->
+    <ul class="columns-auto products">
+      {{#collections.ateliers}}{{^draft}}
+      <li>
+        {{#product_cover}}
+        {{>layout/cover}}
+        {{/product_cover}}
+        <h2>{{title}}</h2>
+        {{{contents}}}
+        {{#price}}
+        <p>
+          <a class="button is-highlight is-fullwidth" href="{{price.link}}{{^price.link}}{{price.path}}{{/price.link}}">{{price.name}} {{price.price}}</a>
+        </p>
+        {{/price}}
+        <ul class="product-prices">
+        {{#prices}}
+          {{#link}}
+          <li>
+            <a class="button is-strong" href="{{link}}">{{name}} {{price}}</a>
+          </li>
+          {{/link}}
+        {{/prices}}
+        </ul>
+      </li>
+      <!-- {{>layout/navigation/collections/link}} -->
+      {{/draft}}{{/collections.ateliers}}
+    </ul>
+  </div>
+  <div class="column-third insert is-small">
+    <h1>{{title}}</h1>
+    <div data-markdown>{{{description}}}</div>
+    {{{contents}}}
+  </div>
+</main>
+{{>layout/footer}}
+{{>layout/close}}

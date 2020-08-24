@@ -1,0 +1,51 @@
+
+/**
+ * Link
+ *
+ * Markup: templates/vanilla/link.html
+ *
+ * Styleguide: vanilla.link
+ *
+ * @uses
+ *  - --link-color
+ *  - --link-color-visited
+ *  - --link-color-hover
+ *  - --link-color-focus
+ *  - --link-underline
+ *
+ * @package Chibi CSS
+ */
+
+a,
+a:link,
+a.pseudo-class-link { color: var(--link-color); }
+a:visited,
+a.pseudo-class-visited { color: var(--link-color-visited); }
+a:hover,
+a:active,
+a.current,
+a.pseudo-class-hover,
+a.pseudo-class-active {
+  color: var(--link-color-hover);
+  text-decoration: var(--link-underline);
+}
+a:focus,
+a.pseudo-class-focus { color: var(--link-color-focus); }
+
+
+h1 a:link, h1 a:visited,
+h2 a:link, h2 a:visited,
+h3 a:link, h3 a:visited,
+h4 a:link, h4 a:visited,
+h5 a:link, h5 a:visited,
+h6 a:link, h6 a:visited {
+	color: var(--link-color);
+	text-decoration: none;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover { color: var(--link-color-hover); }

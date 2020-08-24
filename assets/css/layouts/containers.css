@@ -1,0 +1,83 @@
+/**
+ * Divers conteneurs
+ */
+:root {
+  /* Réglage similaire aux cellules et gouttières de `layout/columns` */
+  /* Largeur max : modulo * (15 * 6); 1.5rem * 90 = 135rem (2160px) */
+  --max-width: calc(var(--modulo) * 90);
+}
+
+/**
+ * Simplement appliquer un espace de sécurité
+ */
+.wrapper,
+.wrapper-xsmall,
+.wrapper-small,
+.wrapper-medium,
+.wrapper-large,
+.wrapper-xlarge,
+.container {
+  padding: var(--gap);
+}
+
+/**
+ * Conteneur standard, permet de limiter la largeur d'un bloc et de 
+ * le centrer dans la page.
+ *
+ * modulo * 90; 1.5rem * 90 = 125rem (soit 2160px)
+ */
+.wrapper,
+.wrapper-xsmall,
+.wrapper-small,
+.wrapper-medium,
+.wrapper-large,
+.wrapper-xlarge {
+  max-width: var(--wrapper-max-width);
+  margin: 0 auto;
+}
+
+:root {
+  --wrapper-xsmall: var(--modulo);
+  --wrapper-small: calc(var(--modulo) * 2);
+  --wrapper-medium: calc(var(--modulo) * 3);
+  --wrapper-large: calc(var(--modulo) * 4);
+  --wrapper-xlarge: calc(var(--modulo) * 5);
+}
+
+/** Contexte de sélecteur **/
+.wrapper-xsmall { --wrapper-max-width: var(--wrapper-xsmall); }
+.wrapper-small { --wrapper-max-width: var(--wrapper-small); }
+.wrapper-medium { --wrapper-max-width: var(--wrapper-medium); }
+.wrapper-large { --wrapper-max-width: var(--wrapper-large); }
+.wrapper-xlarge { --wrapper-max-width: var(--wrapper-xlarge); }
+
+/** Contexte de points d'arrets **/
+
+/* Mobile first */
+:root { --wrapper-max-width: var(--wrapper-xsmall); }
+
+/* Xsmall : 1 modulo (>= 360px) */
+@media only screen and (min-width: 22.5rem) {}
+
+/* Small : 2 modulos (>= 720px) */
+@media only screen and (min-width: calc(22.5rem * 2)) {
+  :root { --wrapper-max-width: var(--wrapper-small); }
+}
+
+/* Medium : 3 modulos (>= 1080px) */
+@media only screen and (min-width: calc(22.5rem * 3)) {
+  :root { --wrapper-max-width: var(--wrapper-medium); }
+}
+
+/* Large : 4 modulos (>= 1440px) */
+@media only screen and (min-width: calc(22.5rem * 4)) {
+  :root { --wrapper-max-width: var(--wrapper-large); }
+}
+
+/* Xlarge : 5 modulos (>= 1800px) */
+@media only screen and (min-width: calc(22.5rem * 5)) {
+  :root { --wrapper-max-width: var(--wrapper-xlarge); }
+}
+
+/* Not use : 6 modulos (>= 2160px) */
+@media only screen and (min-width: calc(22.5rem * 6)) {}

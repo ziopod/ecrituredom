@@ -1,0 +1,72 @@
+/**
+ * Miscellaneous
+ *
+ * Markup: templates/vanilla/miscellaneous.html
+ *
+ * Stylguide: vanilla.miscellaneous
+ *
+ * @uses
+ *  - --margin
+ *  - --font-size-small
+ *  - --font-weight-bold
+ *  - --text-color-quiet
+ *  - --text-color-quiet-contrast
+ *  - --text-color-highlight
+ *  - --text-color-highlight-contrast
+ *  - --border-size
+ *  - --border-color
+ *
+ * @package Chibi CSS
+ */
+
+small { font-size: var(--font-size-small); }
+
+strong,
+b { font-weight: var(--font-weight-bold); }
+
+hr {
+  box-sizing: content-box;
+	height: 0;
+  margin: calc( 2 * var(--margin)) 0 calc( 2 * var(--margin));
+	border: none;
+	border-top: var(--border-size) solid var(--border-color);
+}
+
+dfn { font-style: italic; }
+
+mark,
+ins {
+	background-color: var(--text-color-highlight-contrast);
+  color: var(--text-color-highlight);
+  /* @todo : variabiliser ces marges ? */
+	padding: .2em .3em .28em;
+}
+
+abbr[title] {
+	text-decoration: dotted underline;
+	cursor: help;
+}
+
+del {
+  color: var(--text-color-quiet);
+  background-color: var(--text-color-quiet-contrast);
+}
+
+ins { text-decoration: dotted underline; }
+
+sub,
+sup {
+  font-size: var(--font-size--xxsmall);
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup { top: -.5em; }
+
+sub { bottom: -.25em; }
+
+summary {
+	font-weight: var(--font-weight-bold);
+	cursor: pointer;
+}

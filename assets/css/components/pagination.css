@@ -1,0 +1,61 @@
+/**
+ * Pagination
+ *
+ * Format de la pagination :
+ * ~~~
+ *  .pagination
+ *    .pagination-link
+ *      .is-current
+ *      .is-previous
+ *      .is-next
+ *      .is-first
+ *      .is-last
+ *      .is-ommited (ellipsis)
+ * ~~~
+ *
+ * Markup:
+ *  <ul class="pagination">
+ *    <li class="pagination-link is-first"><a class="button-soft" href="#">début</a></li>
+ *    <li class="pagination-link is-previous"><a class="button-soft" href="#">précedent</a></li>
+ *    <li class="pagination-link"><a class="button-soft is-ommited" href="#">…</a></li>
+ *    <li class="pagination-link"><a class="button-soft" href="#">2</a></li>
+ *    <li class="pagination-link is-current"><a class="button-soft is-active" href="#">3</a></li>
+ *    <li class="pagination-link"><a class="button-soft" href="#">4</a></li>
+ *    <li class="pagination-link"><a class="button-soft is-ommited" href="#">…</a></li>
+ *    <li class="pagination-link is-next"><a class="button-soft" href="#">suivant</a></li>
+ *    <li class="pagination-link is-last"><a class="button-soft" href="#">dernier</a></li>
+ *  </ul>
+ *  <ul class="pagination">
+ *    <li class="pagination-link is-first"><a class="button" href="#">début</a></li>
+ *    <li class="pagination-link is-previous"><a class="button" href="#">précedent</a></li>
+ *    <li class="pagination-link"><a class="button is-ommited" href="#">…</a></li>
+ *    <li class="pagination-link"><a class="button" href="#">2</a></li>
+ *    <li class="pagination-link is-current"><a class="button is-active" href="#">3</a></li>
+ *    <li class="pagination-link"><a class="button" href="#">4</a></li>
+ *    <li class="pagination-link"><a class="button is-ommited" href="#">…</a></li>
+ *    <li class="pagination-link is-next"><a class="button" href="#">suivant</a></li>
+ *    <li class="pagination-link is-last"><a class="button" href="#">dernier</a></li>
+ *  </ul>
+ *
+ * Styleguide: components.pagination
+ */
+
+.pagination{
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  /** La taille minimum doit pouvoir contenir `88` */
+  grid-template-columns: repeat(auto-fit, minmax(2.5em, max-content));
+  justify-content: center;
+}
+
+/* Presentation sur petites écrans */
+.pagination-link { display: none; }
+.pagination-link.is-first,
+.pagination-link.is-previous,
+.pagination-link.is-next,
+.pagination-link.is-last { display: block; }
+
+@media only screen and (min-width: calc(22.5rem * 2)) {
+  .pagination-link { display: block; }
+}

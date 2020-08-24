@@ -1,0 +1,9 @@
+<li class="navigation-item"><a href="{{link.src}}" class="navigation-link icon {{link.class}}" tilte="{{link.name}}">
+  {{#link.icon}}
+  <svg viewbox="{{link.icon.viewbox}}">
+    <title>{{link.name}}</title>
+    <path d="{{link.icon.data}}">
+  </svg>
+  {{/link.icon}}
+  {{^link.icon}}{{link.name}}{{/link.icon}}
+</a></li>

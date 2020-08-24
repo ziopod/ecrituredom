@@ -1,0 +1,275 @@
+/**
+ * Guide de style
+ */
+
+/** Paramètres **/
+:root {
+  --color-blueprint     : #4C9ED9;
+  --color-sketchline    : firebrick;
+}
+
+/**
+ * Remove scrappy thing from KSS Node
+ */
+#kss-node .kss-modifier__wrapper {
+  margin: 0;
+  border: none;
+}
+
+#kss-node .kss-modifier__heading {
+  padding: 0 0 0.5em 0;
+  margin-bottom: 1em;
+  background-color: white;
+  font-weight: normal;
+  font-style: italic;
+  color: #666;
+}
+
+/** Personnalisation pour l'affichage des variables **/
+#kss-node *[id*=kssref-variables] .kss-modifier__heading { display: none;}
+#kss-node *[id*=kssref-variables] .kss-modifier__wrapper { padding-top: var(--gap);}
+#kss-node *[id*=kssref-variables] .kss-modifier__default-name { display: none;}
+#kss-node *[id*=kssref-variables] .kss-modifier__default-name + .kss-modifier__example{ display: none;}
+#kss-node .kss-modifier__example {margin-bottom: var(--gap);}
+.styleguide-swatch {
+  padding: var(--gap);
+  font-family: var(--font-family-serif);
+  word-wrap: break-word;
+}
+.styleguide-swatch:after {
+  content: attr(data-content);
+}
+
+/** Couleurs **/
+.styleguide-swatch[class*=--color] {
+  width: var(--modulo);
+  text-align: center;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-xxsmall);
+}
+.styleguide-swatch.--color-strong {
+  background-color: var(--color-strong);
+  color: var(--color-strong-contrast);
+}
+.styleguide-swatch.--color {
+  background-color: var(--color);
+  color: var(--color-contrast);
+}
+.styleguide-swatch.--color-light {
+  background-color: var(--color-light);
+  color: var(--color-light-contrast);
+}
+.styleguide-swatch.--color-accent-stronger {
+  background-color: var(--color-accent-stronger);
+  color: var(--color-accent-stronger-contrast);
+}
+.styleguide-swatch.--color-accent-strong {
+  background-color: var(--color-accent-strong);
+  color: var(--color-accent-strong-contrast);
+}
+.styleguide-swatch.--color-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+.styleguide-swatch.--color-achromatic-stronger {
+  background-color: var(--color-achromatic-stronger);
+  color: var(--color-achromatic-stronger-contrast);
+}
+.styleguide-swatch.--color-achromatic-strong {
+  background-color: var(--color-achromatic-strong);
+  color: var(--color-achromatic-strong-contrast);
+}
+.styleguide-swatch.--color-achromatic {
+  background-color: var(--color-achromatic);
+  color: var(--color-achromatic-contrast);
+}
+.styleguide-swatch.--color-achromatic-light {
+  background-color: var(--color-achromatic-light);
+  color: var(--color-achromatic-light-contrast);
+}
+.styleguide-swatch.--color-achromatic-lighter {
+  background-color: var(--color-achromatic-lighter);
+  color: var(--color-achromatic-lighter-contrast);
+}
+
+/** Typographies **/
+.styleguide-swatch.font-italic,
+.styleguide-swatch.font-bold-italic { font-style: italic; }
+.styleguide-swatch.font-bold,
+.styleguide-swatch.font-bold-italic
+{ font-weight: var(--font-weight-bold); }
+
+.--font-family {font-family: var(--font-family);}
+.--font-family-heading {font-family: var(--font-family-heading);}
+.--font-family-ui {font-family: var(--font-family-ui);}
+.--font-family-code {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-small);
+}
+.styleguide-swatch.--font-size-xxlarge { font-size: var(--font-size-xxlarge); }
+.styleguide-swatch.--font-size-xlarge { font-size: var(--font-size-xlarge); }
+.styleguide-swatch.--font-size-large { font-size: var(--font-size-large); }
+.styleguide-swatch.--font-size-normal { font-size: var(--font-size-normal); }
+.styleguide-swatch.--font-size-small { font-size: var(--font-size-small); }
+.styleguide-swatch.--font-size-xsmall { font-size: var(--font-size-xsmall); }
+.styleguide-swatch.--font-size-xxsmall { font-size: var(--font-size-xxsmall); }
+
+/** Boites **/
+.styleguide-boxes {
+  margin-bottom: var(--margin-after);
+  display: flex;
+  align-items: flex-end;
+}
+.styleguide-boxes > div {
+  margin: 0 var(--gap-demi);
+  box-sizing: border-box;
+}
+.styleguide-boxes > code { font-size: var(--font-size-xxsmall); }
+
+/** Bordures **/
+[class^=--border-width] {
+  width: var(--gap-double);
+  height: var(--gap-double);
+  border-color: var(--color-sketchline);
+  border-style: solid;
+}
+.--border-width { border-width: var(--border-width); }
+.--border-width-thin { border-width: var(--border-width-thin); }
+.--border-width-large { border-width: var(--border-width-large); }
+
+[class^=--border-color] {
+  width: var(--gap-double);
+  height: var(--gap-double);
+  border-width: var(--border-width);
+  border-style: solid;
+}
+.--border-color { border-color: var(--border-color); }
+.--border-color-quiet { border-color: var(--border-color-quiet); }
+.--border-color-loud { border-color: var(--border-color-loud); }
+
+/** Espacements **/
+.--font-size-root,
+.--modulo,
+.--pixrem,
+.--pixem,
+[class^=--gap] {
+  background-color: var(--color-blueprint);
+}
+.--font-size-root {
+  width: calc(var(--font-size-root) * 1px);
+  height: calc(var(--font-size-root) * 1px);
+}
+.--modulo {
+  width: var(--modulo);
+  height: var(--modulo);
+}
+.--pixrem {
+  width: var(--pixrem);
+  height: var(--pixrem);
+}
+.--pixem {
+  width: var(--pixem);
+  height: var(--pixem);
+}
+.--gap-quarter {
+  width: var(--gap-quarter);
+  height: var(--gap-quarter);
+}
+.--gap-third {
+  width: var(--gap-third);
+  height: var(--gap-third);
+}
+.--gap-demi {
+  width: var(--gap-demi);
+  height: var(--gap-demi);
+}
+.--gap {
+  width: var(--gap);
+  height: var(--gap);
+}
+.--gap-double {
+  width: var(--gap-double);
+  height: var(--gap-double);
+}
+.--gap-triple {
+  width: var(--gap-triple);
+  height: var(--gap-triple);
+}
+.--gap-quadruple {
+  width: var(--gap-quadruple);
+  height: var(--gap-quadruple);
+}
+
+/** Affichage des colonnes **/
+.styleguide-columns > * {
+  background-color: var(--color-blueprint);
+  text-align: center;
+  color: white;
+}
+/**
+ * Exemples
+ *
+ * Quelques exemples de rendus des composants en contextes.
+ *
+ * Styleguide: examples
+ */
+
+/**
+ * Page
+ *
+ * Avec menu de navigation d'ancres.
+ *
+ * @uses
+ *  - components/navigation.css
+ *  - layouts/columns.css
+ *
+ * Styleguide: examples.page
+ */
+
+/**
+ * Index de blog
+ *
+ * @uses
+ *  - components/pagination.css
+ *  - layouts/columns.css
+ *
+ * Stylguide: examples.blog-index
+ */
+
+/**
+ * Exemple d'article
+ *
+ *
+ * Styleguide: examples.article
+ */
+
+/**
+ * Exemple de fiche
+ *
+ * @uses
+ *  - elements/button.css
+ *  - layouts/columns.css
+ *
+ * Styleguide: examples.card
+ */
+
+/**
+ * Exemple de bannière
+ *
+ * @uses
+ *  - elements/button.css
+ *  - layouts/columns.css
+ *
+ * Styleguide: examples.banner
+ */
+
+ /**
+ * Exemple de barre de navigation
+ *
+ * @uses
+ *  - components/navigation.css
+ *  - elements/button.css
+ *  - layouts/columns.css
+ *
+ * Styleguide: examples.navbar
+ */

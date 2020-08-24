@@ -1,0 +1,372 @@
+/**
+ * # Élements de navigation
+ */
+
+ /**
+ * ## Configuration
+ */
+:root {
+  --navigation-background-color: var(--text-color-contrast);
+  --navigation-color: var(--text-color);
+}
+
+
+ /**
+ * ## Composant de barre de navigation
+ *
+ * Ce composant est fait pour être utiliser comme navigation primaire,
+ * comprenant : le logo, une punchline le menu et des boutons.
+ *
+ * ## Adaptatif
+ * Le menu de navigatione exploite un mécanisme simple de positionnement
+ * des éléments de navigation en bas de page
+ *
+ * ## références :
+ * - https://purecss.io/menus/
+ * - https://turretcss.com/getting-started/
+ *
+ * ## Espaces de nom `navigation`
+ * Doc sticky : https://webdesign.tutsplus.com/tutorials/sticky-positioning-with-nothing-but-css--cms-24042
+ * - nav > ul (element semantic)
+ * - nav > ul.is-inline
+ * - nav.is-sticky ()
+ * - menu [menu-horizontal, menu-sticky]
+ *   - menu-heading
+ *   - menu-item [is-selected, is-disabled, has-children]
+ *     - menu-item-children (dropdown)
+ *   - menu-link a (gestion des espaces )
+ *
+ * Équivalent semantique
+ * - nav [is-inline ou nav-inline, is-sticky ou nav-sticky] (utiliser 'is' pour les états seulement)
+ *   - nav.nav-inline > hn (heading) ou nav.nav-inline > * et nav.nav-inline > ul > li (premier 'li' descendant)
+ *   - nav > ul > li [is-selected, is-disabled, has-children] (item)
+*      - nav > ul > li > ul (premier 'ul' descendant)
+*      - nav li ul (tous les descendants)
+ * # Layout
+ * ~~~
+ * - navigation
+ *   - position
+ *     - brand
+ *     - menu
+ *       - item
+ * ~~~
+ * Autre exemple d'espace de noms (non sémantique) :
+ * ~~~
+ * - navigation
+ *  - navigation-start
+ *    - navigation-brand
+ *    - navigation-menu
+ *      - navigation-item
+ *  - navigation-end
+ *    - navigation-menu
+ *     - navigation-item
+ * ~~~
+ *
+ * Note : doit pouvoir être extensible (dropdown
+ */
+
+ /**
+ * Navigation sémantique
+ *
+ * À utiliser conjointement avec `elements > button` pour un aspect "menu".
+ */
+nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+nav.inline { overflow: hidden; }
+nav.inline h1,
+nav.inline h2,
+nav.inline h3,
+nav.inline h4,
+nav.inline h5,
+nav.inline h6 {
+  margin: 0 0.5em;
+  font-size: 1em;
+}
+nav.inline li {
+  /* display: inline-block; */
+  display: block;
+  float: left;
+  margin: 0.1em;
+  margin: 0 0.5em;
+}
+
+nav.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+}
+
+/** Brand
+ *
+ * brand [sticky]
+ *  - brand-left
+ *    - brand-logo
+ *    - brand-navigation (navigation standard en ligne)
+ *  - brand-right
+ *    - brand-navigation (navigation standard en ligne)
+ *
+ *
+ * Une navigation standard peut être utilisée en premier lieu.
+ *
+ * Un aménagement des élements de navigation peut éventuellement être mise
+ * en place.
+ *
+ * @note: Pour la gestion du sticky et de la transformation au scroll par ajout/suppression d'une classe , cf. https://www.cssscript.com/smart-fixed-top-navigation-pure-javascript/
+ * @todo: gestion des icones
+ */
+
+:root {
+  --navigation-height: 3.75rem;
+}
+/*
+Mobile first
+La stratégie pour le menu minifié est de le positionner en dehors de
+la zone d'affichage (en haut), puis de l'afficher lors d'un click sur
+un lien d'accès au menu.
+*/
+.navigation {
+  padding: var(--margin-thin);
+  background-color: var(--navigation-background-color);
+  color: var(--navigation-color);
+}
+.navigation.is-sticky {
+  position: sticky;
+  top:0;
+  z-index: 1;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.navigation-start{}
+.navigation-middle{}
+.navigation-end{}
+.navigation-brand {
+  /* /!\ Les marges en haut décale le conteneur parent */
+  margin-top: 0;
+  align-self: center;
+}
+.navigation-brand a {
+  display: block;
+  color: var(--color-strong);
+  text-decoration: none;
+}
+
+/* Menu affiché hors écran par défaut */
+.navigation-menu {
+  /* position: absolute;
+  height: 100vh;
+  width: 100vw; */
+  margin-bottom: 0;
+  /* masquer le menu */
+  /* left: -100vw; */
+  text-align: center;
+  background-color: var(--navigation-menu-background-color);
+  color: var(--navigation-menu-color);
+  transition: left 300ms;
+}
+
+/* conserver une couleur de texte accèssible */
+.navigation-menu { color: var(--text-color); }
+
+/* Afficher le menu */
+#header:target #navigation {
+  left: 0;
+}
+.navigation-items {
+  width: 100%;
+  padding: 0;
+  margin-top: 1em;
+  margin-bottom: 0;
+  list-style: none;
+}
+/**
+ * Note : L'usage de `text-align` et du `padding`
+ * servent de fallback en cas de non support de `grid-layout`
+ */
+.navigation-items .navigation-item {
+  text-align: center;
+  padding: var(--pixem);
+}
+.navigation-items.is-inline {
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+  /* grid-template-columns: repeat(auto-fill, minmax(max-content, 1fr)); */
+  grid-auto-columns: auto;
+}
+.navigation-items.is-inline .navigation-item {
+  display: inline-block;
+}
+.navigation-item a {
+  display: block;
+  /* margin-bottom: calc(var(--gap) / 4); */
+}
+
+.navigation-show-menu,
+.navigation-close-menu {
+  display: block;
+  text-align: right;
+}
+
+/* 1 colonne (≥ 360px) */
+@media only screen and (min-width: 22.5rem) {
+  .navigation-items.is-inline { grid-auto-flow: column; }
+}
+
+/* 2 colonnnes (>= 720px) */
+@media only screen and (min-width: calc(22.5rem * 2)) {
+  /* menu sur deux colonnes */
+  .navigation-menu {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: var(--grid-gutter);
+  }
+  .navigation-close-menu { grid-column: span 2; }
+}
+
+/* 3 colonnes (>= 1080px) */
+@media only screen and (min-width: calc(22.5rem * 3)) {
+  /* Affichage du menu */
+  .navigation-menu {
+    position: static;
+    height: auto;
+    width: auto;
+    left: 0;
+  }
+  /* Masquage du lien d'accès au menu, affichage du menu normalement */
+  .navigation-show-menu { display: none; }
+  .navigation-close-menu { display: none; }
+  /*
+  Positionnement des élements du menu.
+
+  Positionnement classique avec l'idendité sur la gauche et
+  le menu sur a droite.
+  */
+  /* Gestion des overflow */
+  .navigation-brand,
+  .navigation-items {
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+  .navigation-brand img { max-height: var(--navigation-height); }
+  .navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: var(--grid-gutter);
+    /* grid-auto-columns: 1fr; */
+    grid-template-columns: 1fr 2fr;
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    /* grid-template: "left right"; */
+  }
+  .navigation-menu {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: var(--grid-gutter);
+  }
+  /* @todo: aligner les éléments verticalement grace à grid layout */
+  /* conserver une couleur de texte accèssible */
+  .navigation-menu { color: var(--color-strong); }
+  .navigation-items {
+    margin-top: 0;
+    margin-bottom: var(--white-space);
+  }
+
+  /* Partie droite du menu */
+  .navigation-end { text-align: right;}
+  .navigation-end .navigation-items { justify-content: right; }
+
+}
+
+/* @todo: voir pour une navigation moins générique et plus simple */
+/*
+Par exemple : non masqué, mono-colonne;
+
+| brand |
+| start |
+|  end  |
+
+|    brand    |
+| start | end |
+
+| brand | start | end |
+
+Avec grid template areas ?
+/*
+/* Table de contenu (navigation principale contextuelle) */
+/* Pagination */
+/* Search form */
+
+
+/**
+ * ## Navigation "Aller à"
+ *
+ * @todo: navigation avec couverture sur mobile (cf. flvm.fr)
+ *
+ * = logo =
+ *  lien A
+ *  lien B
+ *  s1 s2
+ *  ↓˯⤵ aller au contenu
+ *
+ *  ↑˰⤴ retourner en haut
+ *
+ *  ↩ ↫ ⤶ page précedente
+ *  ⤷ page suivante
+ */
+ /** Aller à la navogation (Burger menu) **/
+ .go-to-navigation {
+  text-decoration: none;
+  position: absolute;
+  top: 0.8em;
+  right: 0.5em;
+  color: var(--color-strong);
+}
+.go-to-navigation:before {
+  display: block;
+  padding: 0 0.1em;
+  font-size: 3em;
+  line-height: 1em;
+  content: '\002630'; /** ☰ **/
+  transition: 200ms;
+}
+.go-to-navigation:hover:before {
+  color:var(--color-contrast);
+  background-color: var(--color-strong);
+}
+
+/**
+ * ### Flèches unicode
+ *
+ * |   |  CSS  |   HTML   |
+ * |---|-------|----------|
+ * | ← | \2190 |  &larr;  |
+ * | ↑ | \2191 |  &uarr;  |
+ * | → | \2192 |  &rarr;  |
+ * | ↓ | \2193 |  &darr;  |
+ * | ⤴ | \2934 | &#10548; |
+ * | ⤵ | \2935 | &#10549; |
+ * | ⤶ | \2936 | &#10550; |
+ * | ⤷ | \2937 | &#10551; |
+ */
+
+/** Aller au début (navigation) **/
+.go-to-start:before {
+  content: '\2191'; /** ↑ **/
+}
+
+/** Aller au contenu **/
+.go-to-main:before {
+  content: '\2193'; /** ↓ **/
+}
+
+/** Aller au contenu précedent **/
+.go-to-previous:before {
+  content: '\2190'; /** ← **/
+}
+
+/** Aller au contenu suivant **/
+.go-to-next:before {
+  content: '\2192'; /** → **/
+}
+

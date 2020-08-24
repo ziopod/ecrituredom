@@ -1,0 +1,17 @@
+/**
+ * List
+ *
+ * Cet aspect s'applique aux éléments HTML `<ul>` et `<ol>`
+ *
+ * .is-soft             - Liste discrète sans retrait et puces
+ *
+ * Markup:
+ * <ul class="{{modifier_class}}"><li>this</li><li>is</li><li>an</li><li>example</li></ul>
+ *
+ * Styleguide: Elements.list
+ */
+ul.is-quiet,
+ol.is-quiet {
+  list-style: none;
+  padding-left: 0;
+}

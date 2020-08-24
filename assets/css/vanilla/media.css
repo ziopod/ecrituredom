@@ -1,0 +1,57 @@
+
+/**
+ * Médias
+ *
+ * Stuffs for covers, images, audio and video.
+ *
+ * Markup: templates/vanilla/media.html
+ *
+ * Styleguide: vanilla.media
+ *
+ * @uses
+ *  - --margin-before
+ *  - --margin-after
+ *  - --margin
+ *  - --margin-thin
+ *  - --font-size-small
+ *  - --text-color
+ *  - --border-size-thin
+ *  - --border-color
+ *
+ * @package Chibi CSS
+ */
+
+img {
+  max-width: 100%;
+  /* Alt text look and feel when image link are broken */
+  font-style: italic;
+  color: var(--text-color-quiet);
+  background-color: var(--text-color-quiet-contrast);
+  font-size: var(--font-size-xsmall);
+}
+
+figure {
+  margin: var(--margin-before) 0 var(--margin-after);
+  text-align: center;
+}
+
+figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+figcaption {
+  /* Déjà configuré dans `normalize/base.css` */
+  display: block;
+  margin-bottom: 0;
+  padding: var(--margin-thin) var(--margin);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height); /* Rafraîchissement de la hauteur de ligne */
+  font-style: italic;
+  color: var(--text-color);
+  border-bottom: var(--border-size-thin) dotted var(--border-color-quiet);
+}
+
+figcaption em { font-style: normal; }
+
+figcaption p:last-of-type { margin-bottom: 0; }

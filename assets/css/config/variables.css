@@ -1,0 +1,315 @@
+
+/**
+ * Configuration globale
+ *
+ * Styleguide: variables
+ */
+
+/**
+ * Espacements
+ *
+ * Le `pixrem` vaut 1 pixel en unité de mesure `rem`, sa taille ne
+ * varie pas.
+ *
+ * Le `pixem` vaut 1 pixel en unité de mesure `em`, sa taille s'adapte en
+ * fonction du contexte. Ce qui permet d'avoir des "pixels plus gros" en
+ * fonction du zoom texte.
+ *
+ * Markup: templates/variables/spacing.html
+ *
+ * Styleguide: variables.spacing
+ */
+:root {
+
+  /* Size and margins */
+  --font-size-root  : 16;
+  /*--gap             : 1.5em;*/ /* 24px (pour un écran <= à 720px) */
+  --gap             : 1.5em; /* 24px (pour tout les écrans) */
+  --gap-quadruple   : calc(var(--gap) * 4); /* 96px */
+  --gap-triple      : calc(var(--gap) * 3); /* 72px */
+  --gap-double      : calc(var(--gap) * 2); /* 48px */
+  --gap-demi        : calc(var(--gap) / 2); /* 12px */
+  --gap-third       : calc(var(--gap) / 3); /* 8px */
+  --gap-quarter     : calc(var(--gap) / 4); /* 4px */
+  --modulo          : calc(var(--gap) * 15); /* 360px */
+  --modulo          : 360px; /* 360px */
+  --pixrem          : calc( 1 / var(--font-size-root) * 1rem);
+
+  /**
+   * Couleurs
+   *
+   * Attribution des couleurs.
+   *
+   * --color-strong               - Couleur de base fonçé
+   * --color                      - Couleur de base
+   * --color-light                - Couleur de base légère
+   * --color-accent-stronger      - Couleur d'accent très foncée
+   * --color-accent-strong        - Couleur d'accent fonçée
+   * --color-accent               - Couleur d'accent
+   * --color-achromatic-stronger  - Couleur achromatique très forte
+   * --color-achromatic-strong    - Couleur achromatique forte
+   * --color-achromatic           - Couleur achromatique
+   * --color-achromatic-light     - Couleur achromatique légère
+   * --color-achromatic-lighter   - Couleur achromatique très légère
+   *
+   * Markup: templates/variables/colors.html
+   *
+   * Styleguide: variables.couleurs
+   */
+
+  /** Inspiration pour les couleurs
+   *
+   * - https://www.colourlovers.com/palette/723615/clairedelune
+   *   - strong : 413E4A
+   *   - light : 73626E
+   *   - color : B38184
+   *   - accent strong : F0B49E
+   *   - accent : F7E4BE
+   * - https://www.colourlovers.com/palette/77121/Good_Friends
+   *   - strong light : 7A6A53
+   *   - achromatic : 99B2B7
+   *   - achromatic light : D5DED9
+   *   - color : 948C75
+   *   - color light : D9CEB2
+   */
+
+  /* @todo: à revoir cf. chibicss/tools/color.less */
+  --color-strong: #9e5055;
+  --color-strong-contrast:#f2ebf3;
+  --color: #cf767c; /* #5886D0 */
+  --color-contrast:#f2ebf3;
+  --color-light: #5D5E5F;
+  --color-light-contrast:#FFFFFF;
+  --color-accent-stronger: #73626E;
+  --color-accent-stronger-contrast: #F5F3E6;
+  --color-accent-strong: #B38184;
+  --color-accent-strong-contrast: #3a0328;
+  /* --color-accent: #F0B49E;
+  --color-accent-contrast: #600842; */
+  --color-accent: #ff6f61;
+  --color-accent-contrast: #17181a;
+  /* --color-accent-strong: #E23265; */
+  --color-alt: #D1E1F9;
+  --color-alt-contrast: var(--color);
+  --color-achromatic-stronger: #292828;
+  --color-achromatic-stronger-contrast: var(--color-achromatic-light);
+  --color-achromatic-strong: #383838;
+  --color-achromatic-strong-contrast: var(--color-achromatic-lighter);
+  --color-achromatic: #706F6F;
+  --color-achromatic-contrast: #1F1F1F;
+  --color-achromatic-light: #B4B4B4;
+  --color-achromatic-light-contrast: var(--color-achromatic-stronger);
+  --color-achromatic-lighter: #F3F3F3;
+  --color-achromatic-lighter-contrast: var(--color-achromatic-strong);
+}
+
+/* @todo : configuration à placer dans les modules */
+/* @doc: https://github.com/kss-node/kss/blob/spec/SPEC.md */
+
+/**
+ * Familles de typographies
+ *
+ *
+ * .--font-family            - Typographie de lecture
+ * .--font-family-heading    - Typographie resérvée pour les titrages
+ * .--font-family-ui         - Typographie pour les élément de UI
+ * .--font-family-code       - Typographie reservée à l'affichage du code
+ *
+ * Markup:
+ *  <div class="styleguide-swatch {{modifier_class}}">Vif Juge, trempez ce blond wisky aqueux.</div>
+ *  <div class="styleguide-swatch font-italic {{modifier_class}}">Vif Juge, trempez ce blond wisky aqueux.</div>
+ *  <div class="styleguide-swatch font-bold {{modifier_class}}">Vif Juge, trempez ce blond wisky aqueux.</div>
+ *  <div class="styleguide-swatch font-bold-italic {{modifier_class}}">Vif Juge, trempez ce blond wisky aqueux.</div>
+ *
+ * Styleguide: variables.typographies-family
+ */
+
+
+/**
+ * Fonts descriptions.
+ */
+:root {
+ /* Families */
+ --font-family                 : Merriweather, Georgia, serif;
+ --font-family-heading         : "Zilla Slab", Arial, sans-serif;
+ --font-family-ui              : var(--font-family-heading);
+ --font-family-code            : "Andalo Mono", Courier, monospace;
+
+ /* Sizes , mobile version for font-size */
+ --font-size                   : 1em;
+ --pixem                       : calc( var(--font-size) / var(--font-size-root));
+ --line-height                 : 1.5em;
+
+ /* Weight */
+ --font-weight-black           : 800;
+ --font-weight-bold            : 600;
+ --font-weight-normal          : 400;
+ --font-weight-light           : 200;
+}
+
+/**
+ * Colors & backgrounds or text.
+ * Each color are associated with its background.
+ * Be gently with contrasts.
+ */
+:root {
+  /* Reading text colors */
+  --text-color                    : #2d2e2f;
+  /* --text-color-contrast           : #f8f1f4; */
+  --text-color-contrast           : #f1e9ed;
+
+  --text-color-highlight          : #27292b;
+  --text-color-highlight-contrast : #ff6f61;
+
+  --text-color-quiet              : #6f7174;
+  --text-color-quiet-contrast     : #ffffff;
+
+  --text-color-loud               : #27292b;
+  --text-color-loud-contrast      : #dfe3e7;
+
+  --text-color-notice             : #2d2e2f;
+  --text-color-notice-contrast    : #5bc0de;
+
+  --text-color-warning            : #2d2e2f;
+  --text-color-warning-contrast   : #f0Ad4e;
+
+  --text-color-danger             : #2d2e2f;
+  --text-color-danger-contrast    : #d9534f;
+
+  --text-color-success            : #2d2e2f;
+  --text-color-success-conrast    : #5cb85c;
+}
+
+:root {
+  /* Utilities */
+  --color-black                 : #000;
+  --color-white                 : #FFF;
+}
+
+/**
+ * Liens
+ */
+:root {
+  /* Aspect */
+  --link-underline      : underline;
+  --link-external       : ' ↗';
+  /* Couleurs */
+  --link-color          : var(--color);
+  --link-color-hover    : var(--color-strong);
+  --link-color-visited  : var(--color-achromatic);
+  --link-color-focus    : var(--color-complementary);
+}
+
+  /* Autres couleur
+    ilt : #de5744
+    ilt : #2d3943
+  */
+  /* Autres fontes
+  Noto serif et sans
+  Libre Baskerville
+  Arvo
+  Merriweather
+  Playfair Display
+  Droid Serif
+  */
+
+/**
+* Tailles de corps
+*
+* --font-size-xxlarge    - Taille de corps géant
+* --font-size-xlarge     - Taille de corps très large
+* --font-size-large      - Taille de corps large
+* --font-size-normal     - Taille de corps normal
+* --font-size-small      - Taille de corps petit
+* --font-size-xsmall     - Taille de corps trés petit
+* --font-size-xxsmall    - Taille de corps minuscule
+*
+* Note: La référence de bases est la taille par défaut du navigateur (16px).
+*
+* Markup:
+* <div class="styleguide-swatch {{modifier_class}}">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz<br>0123456789</div>
+*
+* Styleguide: variables.typographies-sizes
+*/
+:root {
+  --font-size-xxxlarge: 3em; /* 48x */
+  --font-size-xxlarge : 2.5em; /* 40px */
+  --font-size-xlarge  : 2em; /* 32px */
+  --font-size-large   : 1.5em; /* 24px */
+  --font-size-normal  : 1em; /* 16px */
+  --font-size-small   : 0.834em; /* 13px */
+  --font-size-xsmall  : 0.75em; /* 12x */
+  --font-size-xxsmall : 0.667em; /* 10px */
+  --font-size-xxsmall : 0.5em; /* 0px */
+}
+
+/**
+ * Marges et espaces
+ *
+ *
+ * Styleguide: variables.margins
+ */
+:root {
+  --margin-before : 0;
+  --margin-after  : var(--gap);
+  /* Marge génerique : List, blockquote, hr, etc. */
+  --margin        : var(--gap);
+  --margin-thin   : var(--gap-demi);
+  --margin-large  : var(--gap-double);
+}
+
+/**
+ * Bordures
+ *
+ * Markup: templates/variables/borders.html
+ *
+ * Styleguide: variables.borders
+ */
+:root {
+  --border-width         : calc( 2 * var(--pixrem));
+  --border-width-thin    : calc( 1 * var(--pixrem));
+  --border-width-large   : calc( 3 * var(--pixrem));
+  --border-color        : #FF6F61;
+  --border-color-quiet  : #faa49d;
+  --border-color-loud   : #E93A56;
+}
+
+/**
+ * Guillemets
+ */
+:root {
+  /* Utiliser `default` pour preserver la valeur par défaut du navigateur. */
+  --quotes: '«\00A0' '\00A0»' '"' '"'; /* French style */
+}
+
+/**
+ * Breakpoint
+ */
+
+/** Structure pour écran petit (> 720px) **/
+@media only screen and (min-width: 45rem) {
+  :root {
+    --font-size: 1.125em; /* 18px */
+  }
+}
+
+/** Structure pour écran moyen (> 1024px) **/
+@media only screen and  (min-width: 64rem) {
+  :root{
+    --font-size: 1.25em; /* 20px */
+  }
+}
+
+/** Structures pour grand écran (> 1440) **/
+@media only screen and (min-width: 90rem) {
+  :root{
+    --font-size: 1.375em; /* 22px */
+  }
+}
+
+/** Structures pour très grand écran (> 2160) **/
+@media only screen and (min-width: 135rem) {
+  :root{
+    --font-size: 1.5em; /* 24px */
+  }
+}

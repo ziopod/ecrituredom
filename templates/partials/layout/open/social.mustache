@@ -1,0 +1,28 @@
+{{!
+Documentation :
+ - https://css-tricks.com/essential-meta-tags-social-media/
+ - https://moz.com/blog/meta-data-templates-123
+}}
+{{! Open Graph }}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{title}}">
+<meta property="og:url" content="{{permalink}}">
+{{#cover}}<meta property="og:image:" content="{{cover.src}}">{{/cover}}
+<meta property="og:description" content="{{description}}">
+{{! Twitter Card }}
+<meta name="twitter:card" value="summary">
+
+{{! Non essentielles, mais recommandées }}
+<meta property="og:site_name" content="{{site.title}}">
+{{#cover}}<meta name="twitter:image:alt" content="{{cover.alt}}">{{/cover}}
+
+{{! Non essentielles, mais requises pour les outils Analatytics }}
+{{! <meta property="fb:app_id" content="APP-ID"> }}
+{{! <meta name="txitter:site" content="@website-username"> }}
+
+{{!
+Tester les cartes :
+ - https://developers.facebook.com/tools/debug/sharing/
+ - https://cards-dev.twitter.com/validator
+ - https://search.google.com/structured-data/testing-tool
+}}

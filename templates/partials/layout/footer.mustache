@@ -1,0 +1,38 @@
+
+<footer id="footer">
+  <section class="container columns">
+    <nav>
+      <h2>À propos de EcritureDom.com</h2>
+      <p>
+        EcritureDom.com est le site web de l'écrivain et animateur d'ateliers <a href="dominique-duprey">Dominique Duprey</a>.
+      </p>
+      <ul>
+        {{#site.navigation.contacts}}
+        {{>layout/navigation/link}}
+        {{/site.navigation.contacts}}
+      </ul>
+    </nav>
+    <nav>
+      <h2>{{collections.links.metadata.name}}</h2>
+      <p>{{{collections.links.metadata.description}}}</p>
+      <ul>
+        {{#collections.links}}
+        {{>layout/navigation/collections/link}}
+        {{/collections.links}}
+      </ul>
+    </nav>
+  </section>
+  <nav class="subfooter inline center">
+    <h2 class="screen-reader-text">Mentions légales et autres liens</h2>
+    <ul>
+      <li>Tous droits réservées © Dominique Duprey {{site.current_year}}</li>
+    </ul>
+    {{#site.navigation.miscellaneous}}
+    <ul>
+      {{#site.navigation.miscellaneous.links}}
+      {{>layout/navigation/list/link}}
+      {{/site.navigation.miscellaneous.links}}
+    </ul>
+    {{/site.navigation.miscellaneous }}
+  </nav>
+</footer>

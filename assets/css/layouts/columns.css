@@ -1,0 +1,299 @@
+/**
+ * # Système de colonnage
+ *
+ * ## Mode d'affichage en grille automatique
+ *
+ * Chaque premier enfant est automatiquement séléctionné
+ * comme cellule.
+ *
+ * Chaque cellule fait la largeur d'un modulo ± 0.85.
+ *
+ * ## Mode d'affichage en grille à nombre colonnes définis
+ *
+ * Le nombre de colonnes peut être choisi en fonction du la taille d'écran.
+ * La largeur de colonnes sera répartit en fonction de la place disponible.
+ *
+ * Les colonnes de cette grille peuvent débordé si la place est disponible.
+ */
+
+:root {
+  /**
+   * 22.5rem = 360px pour 16px la taille de corps par
+   * défaut des navigateurs
+   */
+  /* --grid-cell-width: 22.5rem; */
+  --grid-gutter: var(--gap);
+  /* grid-cell-width : 22.5rem - 1.5rem = 21rem; */
+  --grid-cell-width: calc(var(--modulo) - var(--grid-gutter));
+}
+
+/* .column.is-span-2 { grid-column-end: span 2; }
+.column.is-span-3 { grid-column-end: span 3; }
+.column.is-span-4 { grid-column-end: span 4; }
+.column.is-span-5 { grid-column-end: span 5; }
+.column.is-span-6 { grid-column-end: span 6; }
+.column.is-offset-1 { grid-column-start: 2; }
+.column.is-offset-2 { grid-column-start: 3; }
+.column.is-offset-3 { grid-column-start: 4; }
+.column.is-offset-4 { grid-column-start: 5; } */
+
+/**
+ * Mode d'affichage en colonne.
+ *
+ * Markup: templates/layouts/columns.html
+ *
+ * Styleguide: Layouts.columns
+ *
+ * @uses
+ *  - --grid-gutter
+ *  - --grid-column-fullwidth
+ *  - --grid-column-major
+ *  - --grid-column-minor
+ *
+ */
+
+.columns,
+.columns-auto,
+.columns-xsmall,
+.columns-small-medium,
+.columns-1,
+.columns-small,
+.columns-small-medium,
+.columns-2,
+.columns-medium,
+.columns-medium-medium,
+.columns-3,
+.columns-large,
+.columns-large-medium,
+.columns-6,
+.columns-xlarge,
+.columns-xlarge-medium,
+.columns-12 {
+  display: grid;
+  /* Grille mono colonne */
+  grid-template-columns: 1fr;
+  /* Watchdog de largeur maximum équivalent à 6 colonnes */
+  /* max-width: calc(var(--grid-cell-width) * 6); */
+  grid-gap: calc(var(--grid-gutter));
+}
+.columns-auto,
+.columns {
+  /* Marge en bordure de fenêtre */
+  padding-left: var(--grid-gutter);
+  padding-right: var(--grid-gutter);
+}
+
+/* Grille à partir de listes */
+ul[class^=columns] {
+  list-style: none;
+  padding-left: 0;
+}
+
+/** Pas de marge pour les colonnes imbriqués **/
+.container .columns-auto,
+.wrapper .columns-auto {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/** Largeurs de grilles **/
+.columns-xsmall,
+.columns-1 { grid-template-columns: 1fr; }
+.columns-small,
+.columns-2 { grid-template-columns: repeat(2, 1fr); }
+.columns-medium,
+.columns-3 { grid-template-columns: repeat(3, 1fr); }
+.columns-large,
+.columns-6 { grid-template-columns: repeat(6, 1fr); }
+.columns-xlarge,
+.columns-12 { grid-template-columns: repeat(12, 1fr); }
+
+/** Les cellules **/
+
+.column-full { grid-column: var(--column-full); }
+.column-five-sixths { grid-column: var(--column-five-sixths); }
+.column-two-thirds { grid-column: var(--column-two-thirds); }
+.column-demi { grid-column: var(--column-demi); }
+.column-third { grid-column: var(--column-third); }
+.column-sixth { grid-column: var(--column-sixth); }
+
+/* Contexte Mobile first (1 colonne) */
+.columns-1,
+.columns-xsmall,
+:root {
+  --column-full: span 1;
+  --column-five-sixths: span 1;
+  --column-two-thirds: span 1;
+  --column-demi: span 1;
+  --column-third: span 1;
+  --column-sixth: span 1;
+}
+
+/* Contexte petit écran (2 colonnes) */
+.columns-2,
+.columns-small {
+  --column-full: span 2;
+  --column-five-sixths: span 2;
+  --column-two-thirds: span 2;
+  --column-demi: span 1;
+  --column-third: span 2;
+  --column-sixth: span 2;
+}
+
+/* Contexte écran moyen (3 colonnes) */
+.columns-3,
+.columns-medium,
+.columns-medium-xsmall,
+.columns-medium-small,
+.columns-medium-medium,
+.columns-medium-large,
+.columns-medium-xlarge {
+  --column-full: span 3;
+  --column-five-sixths: span 3;
+  --column-two-thirds: span 2;
+  --column-demi: span 3;
+  --column-third: span 1;
+  --column-sixth: span 3;
+}
+
+/* Contexte grand écran (6 colonnes) */
+.columns-6,
+.columns-large {
+  --column-full: span 6;
+  --column-five-sixths: span 5;
+  --column-two-thirds: span 4;
+  --column-demi: span 3;
+  --column-third: span 2;
+  --column-sixth: span 1;
+}
+
+/* Contexte très grand écran (12 colonnes) */
+.columns-12,
+.columns-xlarge {
+  --column-full: span 12;
+  --column-five-sixths: span 10;
+  --column-two-thirds: span 8;
+  --column-demi: span 6;
+  --column-third: span 4;
+  --column-sixth: span 2;
+}
+
+/* 2 colonnes */
+.columns-2 .column-full-2 { grid-column: span 2; }
+.columns-2 .column-demi-2 { grid-column: span 1; }
+
+/** Grille mobile first **/
+/* .columns { grid-template-columns: 1fr; } */
+
+/**
+ * Débordement des cellules de la grille automatique.
+ *
+ * Seul les débordements qui passent sous toutes les variantes
+ * automatiques sont autorisés.
+ *
+ */
+ .columns-auto .column-full,
+ .columns { grid-column: 1 / -1; }
+/**
+ * Une largeur de colonne correspond à 22.5rem,
+ * (soit 360px pour un réglage de navigateur standard).
+ */
+
+/**
+ * Mono colonne (>= 360px) */
+@media only screen and (min-width: 22.5rem) {
+  .columns-auto {
+    /* display: grid; */
+    /* Permettre aux bloc de la grille une largeur entre 44 et 8O signes */
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--grid-cell-width) * 0.85), 1fr));
+
+    grid-gap: calc(var(--grid-gutter));
+    /* Centrage de la grille */
+    justify-content: center;
+  }
+  .columns.is-compact{
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--modulo) / 2), 1fr));
+    grid-gap: calc(var(--grid-gutter) / 2);
+  }
+}
+/* Small : 2 colonnes (>= 720px) */
+@media only screen and (min-width: calc(22.5rem * 2)) {
+  .columns { grid-template-columns: repeat(2, 1fr); }
+
+  /* Grille automatique */
+  :root {
+    --column-full: span 2;
+    --column-five-sixths: span 2;
+    --column-two-thirds: span 2;
+    --column-demi: span 1;
+    --column-third: span 2;
+    --column-sixth: span 2;
+  }
+}
+
+/* Medium : 3 colonnes (>= 1080px) */
+@media only screen and (min-width: calc(22.5rem * 3)) {
+
+  /* Grille en 3 colonnes */
+  .columns { grid-template-columns: repeat(3, 1fr); }
+
+  /* Grille automatique */
+  :root {
+    --column-full: span 3;
+    --column-five-sixths: span 3;
+    --column-two-thirds: span 2;
+    --column-demi: span 3;
+    --column-third: span 1;
+    --column-sixth: span 3;
+  }
+
+  /* Activation du template du contexte medium */
+  .columns-xsmall-medium { grid-template-columns: repeat(1, 1fr); }
+  .columns-small-medium { grid-template-columns: repeat(2, 1fr); }
+  .columns-medium-medium { grid-template-columns: repeat(3, 1fr); }
+  .columns-large-medium { grid-template-columns: repeat(6, 1fr); }
+  .columns-xlarge-medium { grid-template-columns: repeat(12, 1fr); }
+
+}
+
+/*
+Le positionnement sur les points d'arrets 4 (>= 1440px) et 5 (>= 1800px)
+colonnes peuvent être gérés si besoin.
+Pour le moment, laissons grid-layout les positionner come il l'entend
+**/
+
+/* Large : 6 colonnes (>= 1440px) */
+@media only screen and (min-width: calc(22.5rem * 4)) {
+  /* Grille en 6 colonnes */
+  .columns { grid-template-columns: repeat(6, 1fr); }
+
+  /* Grille automatique */
+  :root {
+    --column-full: span 6;
+    --column-five-sixths: span 5;
+    --column-two-thirds: span 4;
+    --column-demi: span 3;
+    --column-third: span 2;
+    --column-sixth: span 1;
+  }
+}
+
+/* Xlarge : 12 colonnes (>= 1800px) */
+@media only screen and (min-width: calc(22.5rem * 5)) {
+  /* Grille en 12 colonnes */
+  .columns { grid-template-columns: repeat(12, 1fr); }
+
+  /* Grille automatique */
+  :root {
+    --column-full: span 12;
+    --column-five-sixths: span 10;
+    --column-two-thirds: span 8;
+    --column-demi: span 6;
+    --column-third: span 4;
+    --column-sixth: span 2;
+  }
+}
+
+/* not use (>= 2160px) */
+@media only screen and (min-width: calc(22.5rem * 6) ) {
+}

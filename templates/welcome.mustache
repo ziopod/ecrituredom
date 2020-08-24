@@ -1,0 +1,60 @@
+{{>layout/open}}
+
+<figure data-responsive="cover" class="cover cover-navigation">
+  <img src="{{cover.src}}" alt="{{cover.alt}}">
+  {{#cover.legend}}<figcaption data-markdown>{{{cover.legend}}}</figcaption>{{/cover.legend}}
+  {{! @todo: src-set }}
+</figure>
+{{>layout/header}}
+<main>
+  {{!>tests/picset}}
+
+  <div class="columns wrapper-medium">
+    <article class="column-two-thirds">
+      <h1>Mon p'tit tarot</h1>
+      <figure data-responsive="default">
+        <img src="assets/images/welcome-mon-ptit-tarot-couverture.jpg" alt="Jeu de carte de « Mon p'tit tarot »">
+      </figure>
+      <p>
+        Voici le Tarot de Marseille, jeu initiatique, pas à pas, pour les nuls comme pour les initiés !
+      </p>
+      <p>
+        <strong>Le livre est un guide pratique</strong>, joyeux et simple. <strong>Le jeu de cartes</strong> est d’une beauté étonnante, proche des mangas.
+      </p>
+      <p>
+        Le tout est une plongée jubilatoire, une rencontre avec un ami qui vous veut du bien !
+      </p>
+      <p>Livre de 164 pages et un jeu de tarot de 22 cartes, frais de port inclus.</p>
+      <p><a class="button is-highlight" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PL9V635R9BN4J">Acheter le livre et le jeu de carte <strong>35€</strong></a></p>
+
+      <p><a class="button" href="livres">Voir les autres livres</a></p>
+      <section>
+        <h1>{{title}}</h1>
+        <div data-markdown>{{{description}}}</div>
+        {{{contents}}}
+      </section>
+    </article>
+    {{! <aside class="column is-minor"> }}
+    <aside class="column-third">
+      <!-- @todo: à place dans un collection éditable -->
+      <h2>L'auteur</h2>
+      <figure data-responsive="aside">
+        <img src="medias/uploads/portrait-dominique-duprey.jpg" alt="Portrait de Dominique Duprey">
+        <figcaption>
+          <p>Dominique Duprey</p>
+        </figcaption>
+      </figure>
+      <p>
+        Je suis écrivain et animateur d’ateliers d’écriture.
+      </p>
+      <p>
+        Mon expérience m’a montré que l’écriture et la lecture avaient des pouvoirs tout à fait extraordinaires. Elles réveillent la créativité, l’imaginaire, et mettent du piment dans la vie ! En fait, c’est la plume qui vous guide et qui fait le travail avec et pour vous !
+      </p>
+      <p>
+        <a href="dominique-duprey" class="button">En savoir plus sur l'auteur</a>
+      </p>
+    </aside>
+  </div>
+</main>
+{{>layout/footer}}
+{{>layout/close}}

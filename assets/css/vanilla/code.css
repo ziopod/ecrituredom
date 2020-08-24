@@ -1,0 +1,45 @@
+/**
+ * Code elements
+ *
+ * Markup: templates/vanilla/code.html
+ *
+ * Styleguide: vanilla.code
+ *
+ * @uses
+ *  - --margin
+ *  - --margin-before
+ *  - --margin-after
+ *  - --font-family-code
+ *  - --font-size-small
+ *  - --text-color-loud
+ *  - --text-color-loud-contrast
+ *
+ * @package Chibi CSS
+ */
+
+code,
+samp,
+kbd,
+var,
+pre {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-small);
+  /*
+  color: var(--text-color-loud);
+  background-color: var(--text-color-loud-contrast);
+  */
+}
+
+pre {
+  padding: var(--margin);
+  margin-top: 0;
+  margin: var(--margin-before) 0 var(--margin-after);
+  overflow: auto;
+}
+
+pre	code {
+  padding: 0 var(--margin-thin);
+  /* @todo : tester entre ces deux propositions */
+  /* font-size: var(--font-size-normal ); */
+  font-size: inherit;
+}

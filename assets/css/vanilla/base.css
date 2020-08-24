@@ -1,0 +1,106 @@
+/**
+ * Base
+ *
+ * Bunch of stuffs for default visual aspect.
+ *
+ * Somes fixes from `reset.css`and `normalize.css` included.
+ *
+ * Markup: templates/vanilla/base.html
+ *
+ * Styleguide: vanilla.base
+ *
+ * @uses:
+ *   - --margin-before
+ *   - --margin-after
+ *   - --font-family
+ *   - --line-height
+ *   - --font-weight-bold
+ *   - --color-text
+ *   - --color-text-contrast
+ *
+ * @todo: Ne pas regrouper les sélecteur pour plus de lisibilité. Séparé les
+ * groupes de règles par fichier (headng, links, tables, etc.). S'appuyer sur
+ * PostCSS et CSSminifier pour l'optimisation
+ *
+ * @package Chibi CSS
+ */
+
+/**
+ * Prevent size adjust after device orientation.
+ */
+
+ html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+/**
+ * Define default font size, font color and default margin.
+ */
+
+body {
+	margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--text-color);
+  background-color: var(--text-color-contrast);
+}
+
+/**
+ * Display block HTML5 elements for browser where they are not defined.
+ */
+
+footer,
+header,
+main,
+menu,
+section {
+	display: block;
+}
+
+/**
+ * Display blck HTML 5 and set margin bottom
+ */
+
+article,
+aside,
+details,
+figure,
+figcaption,
+nav {
+	display: block;
+	margin-bottom: var(--margin-after);
+}
+
+/**
+ * Display inline HTLM5 elements for browsers
+ */
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+
+/**
+ * Prevent displaying audio wihout controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/**
+ * Medias fixes for IE.
+ */
+
+img { border: 0; }
+
+svg:not(:root) { overflow: hidden; }
+

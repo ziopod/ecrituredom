@@ -1,0 +1,31 @@
+/**
+ * List
+ *
+ * From `ul` to `dl` HTML tags.
+ * Definition list title `<dt>` are described in `vanilla/heading.css`.
+ *
+ * Markup: templates/vanilla/list.html
+ *
+ * Styleguide: vanilla.list
+ *
+ * @uses
+ *  - --margin-before
+ *  - --margin-after
+ *  - --margin
+ *  - --font-weight-bold
+ *
+ * @package Chibi CSS
+ */
+
+ dl,
+ ol,
+ ul {
+   margin-top: var(--margin-before);
+   margin-bottom: var(--margin-after);
+ }
+
+ ul { padding-left: var(--margin); }
+
+ dl { padding-left: 0; }
+
+ dt { font-weight: var(--font-weight-bold); }

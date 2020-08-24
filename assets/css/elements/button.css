@@ -1,0 +1,107 @@
+/**
+ * Boutons
+ *
+ * Cet aspect s'applique aux éléments HTML `<button>`
+ * et aux éléments HTML possédant la classe CSS `.button`.
+ *
+ * Chaque bouton est presenté respectivement dans les états
+ * suivants : `normal`, `:hover`, `:active`, `:focus` et `.is-disabled`.
+ *
+ * .is-strong           - Plus contrasté
+ * .is-highlight        - Version plus coloré, pour les "appel à l'action"
+ * .is-fullwidth        - Version plen largeur
+ * .button-soft         - Version plus discrète
+ * .button-compact      - Version plus compact
+ *
+ * Markup:
+ * <button class="button {{modifier_class}}">Button</button>
+ * <button class="button pseudo-class-hover {{modifier_class}}">Button <i>:hover</i></button>
+ * <button class="button pseudo-class-active {{modifier_class}}">Button <i>:active</i></button>
+ * <button class="button pseudo-class-focus {{modifier_class}}">Button <i>:focus</i></button>
+ * <button class="button is-disabled {{modifier_class}}">Button <i>.is-disabled</i></button>
+ *
+ * Styleguide: Elements.button
+ */
+
+ .button-soft:visited,
+ .button-soft,
+ .button:visited,
+ .button {
+  display: inline-block;
+  padding: 0.4em 1.4em;
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color);
+  background-color:var(--color-contrast);
+  border: none;
+  cursor: pointer;
+  transition: color 200ms;
+  transition: background-color 200ms;
+  /* Amélioration du rendu typo */
+  /* source : https://medium.com/@MateMarschalko/improving-font-rendering-with-css-3383fc358cbc */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+table[class^=button],
+.button-compact {
+  font-size: var(--font-size-xsmall);
+  padding: 0.1em 0.6em;
+}
+
+.button.pseudo-class-hover,
+.button.is-active,
+.button:hover {
+  background-color: var(--color);
+  color: var(--color-contrast);
+  text-decoration: none;
+}
+.button.is-strong {
+  background-color: var(--color-strong);
+  color: var(--color-strong-contrast);
+}
+.button.is-strong.pseudo-class-hover,
+.button.is-strong.is-active,
+.button.is-strong:hover {
+  background-color: var(--color-strong-contrast);
+  color: var(--color-strong);
+}
+.button.is-highlight {
+  background-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border-bottom: var(--pixem) solid var(--color-accent-stronger);  
+}
+.button.is-highlight.pseudo-class-hover,
+.button.is-highlight.is-active,
+.button.is-highlight:hover {
+  background-color: var(--color-accent-contrast);
+  color: var(--color-contrast);
+}
+.button.is-disabled,
+.button.is-disabled:hover,
+.button-soft.is-disabled,
+.button-soft.is-disabled:hover {
+  background-color: var(--text-color-quiet);
+  color: var(--text-color-quiet-contrast);
+  cursor: not-allowed;
+}
+
+.button-soft { text-decoration: underline; }
+.button-soft.pseudo-class-hover,
+.button-soft.is-active,
+.button-soft:hover {
+  background-color: var(--text-color-contrast);
+  color: var(--color-link-hover);
+  text-decoration: none;
+}
+.button-soft.is-disabled:hover { text-decoration: underline; }
+
+.button.is-fullwidth {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+

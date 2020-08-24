@@ -1,0 +1,44 @@
+/**
+ * Table
+ *
+ * Markup: templates/vanilla/table.html
+ *
+ * Styleguide: vanilla.table
+ *
+ * @uses
+ *  - --margin-after
+ *  - --gap-third
+ *  - --gap-quarter
+ *  - --font-family-legend
+ *  - --font-size-small
+ *  - --font-weight-bold
+ *  - --border-size
+ *  - --border-color
+ *  - --border-color-quiet
+ *
+ * @package Chibi CSS
+ */
+
+table {
+	width: 100%;
+	margin-bottom: var(--margin-after);
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td, th {
+  padding: var(--gap-third) var(--gap-quarter);
+	border-bottom: var(--border-size) solid var(--border-color-quiet);
+}
+
+th {
+	text-align: left;
+	font-weight: var(--font-weight-bold);
+	border-bottom: var(--border-size) solid var(--border-color);
+}
+
+caption {
+  font-family: var(--font-family-legend);
+  font-size: var(--font-size-small);
+	font-style: italic;
+}

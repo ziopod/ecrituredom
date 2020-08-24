@@ -1,0 +1,30 @@
+image: node:latest
+
+variables:
+  PUBLIC_DIRECTORY: "public"
+  CONTENT_REPO: "git@gitlab.com:dominique-duprey/ecrituredom-content.git"
+  CONTENT_ARCHIVE: "https://gitlab.com/dominique-duprey/ecrituredom-content/-/archive/master/ecrituredom-content-master.zip"
+
+before_script:
+  - npm install --only=production
+  - curl -o content.zip $CONTENT_ARCHIVE
+  - unzip content.zip
+  - rm content.zip
+  - mv ecrituredom-content-master content
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  script:
+    - export NODE_ENV=production
+    - npm run build
+    - mv build public
+    - ls -al public
+  artifacts:
+    paths:
+      - $PUBLIC_DIRECTORY
+  only:
+    - master

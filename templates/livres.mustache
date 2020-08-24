@@ -1,0 +1,84 @@
+{{>layout/open}}
+{{>layout/header}}
+<main class="wrapper-large">
+  <!--{{#cover}}<div class="column is-fullwidth">{{>layout/cover}}</div>{{/cover}}-->
+  <!--
+  <div class="column is-minor">
+    <h1>{{title}}</h1>
+    <div data-markdown>{{{description}}}</div>
+    <nav class="">
+      <ul class="navigation-items columns is-compact">
+        {{#navigation}}
+        {{>layout/navigation/button}}
+        {{/navigation}}
+      </ul>
+    </nav>
+    {{{contents}}}
+  </div>
+  -->
+  <!-- le titre et la description sont gérés depuis le fichier de contenu correspondant à la rubrique (par ex. `ateliers.mustache` pour la page Ateliers)-->
+  <!-- <h2>{{collections.ateliers.metadata.name}}</h2>
+  <p>{{{collections.ateliers.metadata.description}}}</p> -->
+  <ul class="columns-auto products">
+    {{#collections.livres}}
+    <li class="product">
+      <h2 id="{{slug}}" class="product-title">{{title}}</h2>
+      {{#cover}}
+      <figure data-responsive="default">
+        <img src="{{cover.src}}" alt="{{cover.alt}}" />
+        {{#cover.legend}}
+        <figcaption>
+          {{cover.legend}}
+        </figcaption>
+        {{/cover.legend}}
+      </figure>
+      {{/cover}}
+      <div data-markdown>{{{description}}}</div>
+      {{#contents}}
+      <details class="product-long-description">
+        <summary>En savoir plus</summary>
+        {{{contents}}}
+      </details>
+      {{/contents}}
+      {{#upcomming}}
+      <p>
+        <a class="button is-disabled is-fullwidth">À paraître {{price}}</a>
+      </p>
+      {{/upcomming}}
+      {{^upcomming}}
+      {{#button.link}}
+      <p>
+        <a class="button is-highlight is-fullwidth" href="{{button.link}}">{{^button.name}}Acheter ce livre{{/button.name}}{{#button.name}}{{button.name}}{{/button.name}} {{button.price}}</a>
+      </p>
+      {{/button.link}}{{/upcomming}}
+      <details class="product-details">
+        <summary>Informations</summary>
+        <ul>
+          {{#isbn}}
+          <li>ISBN : {{isbn}}</li>
+          {{/isbn}}
+          {{#pages}}
+          <li>Nbre de pages : {{pages}}</li>
+          {{/pages}}
+          {{#price}}
+          <li>Prix : {{price}}</li>
+          {{/price}}
+          {{#publisher}}
+          <li>Éditeur : {{publisher}}</li>
+          {{/publisher}}
+          {{#upcomming}}
+          <li>Publication prévue pour {{upcomming}}</li>
+          {{/upcomming}}
+          {{^upcomming}}{{#publish_date}}
+          <li>Publié le {{publish_date}}</li>
+          {{/publish_date}}{{/upcomming}}
+        </ul>
+      </details>
+    </li>
+
+    <!-- {{>layout/navigation/collections/link}} -->
+    {{/collections.livres}}
+  </ul>
+</main>
+{{>layout/footer}}
+{{>layout/close}}

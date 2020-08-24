@@ -1,0 +1,62 @@
+/**
+ * Paragraphes
+ *
+ * Markup: templates/vanilla/paragraph.html
+ *
+ * Styleguide: vanilla.paragraph
+ *
+ * @uses
+ *  - --margin
+ *  - --margin-before
+ *  - --margin-after
+ *  - --border-size
+ *  - --border-color
+ *  - --quote
+ *
+ * @package Chibi CSS
+ */
+
+p {
+	margin-top: var(--margin-before);
+	margin-bottom: var(--margin-after);
+}
+
+address {
+  margin-bottom: var(--margin-after);
+	font-style: italic;
+}
+
+blockquote {
+	padding-left: var(--margin-thin);
+	margin: var(--margin-before) 0 var(--margin-after) var(--margin-thin);
+	border-left: var(--border-size-large) solid var(--border-color);
+	font-style: italic;
+}
+
+blockquote em,
+blockquote i { font-style: normal; }
+
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child,
+blockquote dd:last-child { margin-bottom: 0; }
+
+blockquote footer::before { content: "—\00A0"; }
+
+q, cite {
+	quotes: var(--quotes);
+  font-style: italic;
+}
+
+q:before,
+cite:before {
+  content: open-quote;
+}
+
+q:after,
+cite:after {
+  content: close-quote;
+}
+
+q[cite],
+cite[cite] { cursor: help; }

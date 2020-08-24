@@ -1,0 +1,20 @@
+<header class="navigation is-sticky" id="header" role="banner">
+  <div class="navigation-brand">
+    <h1 class="logo" data-text="{{site.title}}"><a href="{{site.url}}">{{site.title}}</a></h1>
+  </div>
+  <nav id="navigation" class="navigation-menu navigation-end">
+    <h2 class="screen-reader-text">Navigation principale</h2>
+    <ul class="navigation-items is-inline">
+      {{#site.navigation.main}}
+      {{>layout/navigation/button}}
+      {{/site.navigation.main}}
+    </ul>
+    {{#site.navigation.social}}
+    <ul class="navigation-items is-inline">
+      {{#links}}
+      {{>layout/navigation/list/link}}
+      {{/links}}
+    </ul>
+    {{/site.navigation.social}}
+  </nav>
+</header>
